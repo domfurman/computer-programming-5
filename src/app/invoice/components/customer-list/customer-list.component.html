@@ -1,0 +1,4 @@
+<app-customer-list-element *ngFor="let client of customerList" [client]="client"
+[ngStyle]="client.active ? {'color': 'red'} : {}"
+>
+</app-customer-list-element>

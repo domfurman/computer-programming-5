@@ -1,0 +1,75 @@
+<!-- <p>FORM</p> -->
+<!-- <form onsubmit="return getData(event)"> -->
+<div>
+  <h1>Invoice Form</h1>
+</div>
+
+<form class="invoice_form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3">
+      <label for="exampleInputCompanyName" class="form-label">Company name</label>
+      <input type="text" class="form-control" name="companyName" aria-describedby="emailHelp" required [(ngModel)]="client.companyName">
+      <!-- <div id="companyHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputNIP" class="form-label">NIP</label>
+      <input type="number" class="form-control" name="NIP" required [(ngModel)]="client.NIP">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputCity" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" id="inputCity"required [(ngModel)]="client.city">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputStreet" class="form-label">Street</label>
+      <input type="text" class="form-control" name="street" id="inputStreet" required [(ngModel)]="client.street">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputHouseNumber" class="form-label">House number</label>
+      <input type="text" class="form-control" name="houseNumber" id="inputHouseNumber" required [(ngModel)]="client.houseNumber">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputApartmentNumber" class="form-label">Apartment number</label>
+      <input type="text" class="form-control" name="apartmentNumber" id="inputApartmentNumber" [(ngModel)]="client.apartmentNumber">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPostcode" class="form-label">Postcode</label>
+      <input type="text" class="form-control" name="postcode" id="inputPostcode" required [(ngModel)]="client.postcode">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputComments" class="form-label">Comments</label>
+        <input type="text" class="form-control" name="comments" id="inputComments" [(ngModel)]="client.comments">
+      </div>
+    <div class="mb-3">
+        <label for="industry" class="form-label">Industry</label>
+        <select id="industrySelect" class="form-select" name="industry" required [(ngModel)]="client.industry">
+            <option>Information Technology</option>
+            <option>Finance & Accounting</option>
+            <option>Engineering</option>
+        </select>
+    </div>
+    
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="activeCheck" checked required>
+        <label class="form-check-label" for="activeCheck">
+          Active
+        </label>
+    </div>
+    <p>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-primary" onclick="insertData()">Insert</button>
+      <button type="button" class="btn btn-primary" onclick="clearForm()">Clear form</button>
+    </p>
+  </form>
+  <div class="invoice-output-head">
+    <h3>Your invoice looks like this:</h3>
+  </div>
+  <div class="input-test">
+    <p class="form-value">Company name: <span class="form-element-value">{{ client.companyName }}</span></p>
+    <p class="form-value">NIP: <span class="form-element-value">{{ client.NIP }}</span></p>
+    <p class="form-value">City: <span class="form-element-value">{{ client.city }}</span></p>
+    <p class="form-value">Street: <span class="form-element-value">{{ client.street }}</span></p>
+    <p class="form-value">House number: <span class="form-element-value">{{ client.houseNumber }}</span></p>
+    <p class="form-value">Apartment Number: <span class="form-element-value">{{ client.apartmentNumber }}</span></p>
+    <p class="form-value">Postcode: <span class="form-element-value">{{ client.postcode }}</span></p>
+    <p class="form-value">Comments: <span class="form-element-value">{{ client.comments }}</span></p>
+    <p class="form-value">Selected industry: <span class="form-element-value">{{ client.industry }}</span></p>
+  </div>
